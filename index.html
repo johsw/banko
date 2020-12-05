@@ -1,0 +1,72 @@
+<html>
+
+    <head>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas&family=Open+Sans&display=swap"
+            rel="stylesheet">
+        <script type="text/javascript" src="index.js"></script>
+        <style>
+            body {
+                text-align: center;
+                background: #4B79A1;  /* fallback for old browsers */
+                background: -webkit-linear-gradient(to top, #283E51, #0A2342);  /* Chrome 10-25, Safari 5.1-6 */
+                background: linear-gradient(to top, #283E51, #0A2342); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+                background: -olinear-gradient(to top, #283E51, #0A2342);
+                height: 100vh;
+            }
+            h1 {
+                font-family: "Mountains of Christmas";
+                text-align: center;
+                font-size: 60px;
+                color: #fff;
+            }
+            h2{
+                font-family: "Open Sans";
+                font-size: 20px;
+                text-align: center;
+                color: #fff;
+                font-weight: 900;
+            }
+            #table {
+                display: inline-flex;
+
+                flex-direction: column;
+                width: auto;
+                margin: 0 auto;
+                align-items: center;
+                border-top: 1px solid;
+                border-right: 1px solid;
+            }
+            .row {
+                display: flex;
+                flex-direction: row;
+            }
+            .cell {
+                font-family: "Open Sans";
+                width: 60px;
+                height: 60px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: rgba(255,255,255, 0.9);
+                /*box-sizing: border-box; */
+                border-left: 1px solid;
+                border-bottom: 1px solid;
+                text-align: center;
+
+            }
+            .cell.cell-empty {
+                background: rgba(255,255,255, 0.6);
+            }
+        </style>
+
+    </head>
+    <body>
+        <h2>Velkommen til den store</h2>
+        <h1>Wehnerske Jule-Banko!</h1>
+
+        <div id="table">
+
+        </div>
+    </body>
+</html>
