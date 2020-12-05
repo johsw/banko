@@ -8,15 +8,10 @@ const intervals = [];
 const noRows = 3;
 const noCols = 9;
 
-const rows = [];
+let rows = [];
 const rowCounts = [];
 
-const layouts = ["top", "bottom", "split", "split", "split", "split"];
-
-for (n = 0; n < noRows; n++) {
-  rows[n] = [];
-  rowCounts[n] = 0;
-}
+let layouts;
 
 function isValid(number) {
   if (numbers.indexOf(number) > -1) {
@@ -97,6 +92,7 @@ function setTable() {
       }
     }
   });
+  console.log(rows);
 }
 
 function setValueInRow() {
@@ -133,15 +129,52 @@ function createDomEls() {
     });
   });
 }
-function main() {
-  setNumbers();
-  setTable();
-  createDomEls();
+function setHash() {
+  const hash = window.btoa(JSON.stringify(rows));
+
+  const url = window.location.href.split("#")[0];
+
+  const urlField = document.getElementById("url-field");
+
+  console.log(urlField);
+  urlField.value = url + "#" + hash;
 }
+function parseHash(hash) {
+  return JSON.parse(window.atob(location.hash.replace("#", "")));
+}
+function main() {
+  layouts = ["top", "bottom", "split", "split", "split", "split"];
+  for (n = 0; n < noRows; n++) {
+    rows[n] = [];
+    rowCounts[n] = 0;
+  }
+
+  if (location.hash) {
+    rows = parseHash(location.hash);
+  } else {
+    setNumbers();
+    setTable();
+  }
+  createDomEls();
+  setHash();
+}
+function setup() {
+  main();
+  document.getElementById("new").addEventListener("click", () => {
+    location.hash = "";
+    document.getElementById("table").innerHTML = "";
+    rows.splice(0, rows.length);
+    intervals.splice(0, intervals.length);
+    numbers.splice(0, numbers.length);
+
+    main();
+  });
+}
+
 document.addEventListener(
   "DOMContentLoaded",
   () => {
-    main();
+    setup();
   },
   false
 );
