@@ -123,6 +123,11 @@ function createDomEls() {
         numberEl.classList.add("val");
         celEl.appendChild(numberEl);
         numberEl.innerText = val;
+        console.log(numberEl);
+        numberEl.addEventListener("click", (event) => {
+          console.log("asdasd");
+          numberEl.classList.toggle("active");
+        });
       } else {
         celEl.classList.add("cell-empty");
       }

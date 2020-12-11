@@ -99,3 +99,17 @@ canvas {
   height: 100vh;
   z-index: 0;
 }
+.val {
+  cursor: pointer;
+  line-height: 1.5;
+  padding: 4px;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  font-size: 20px;
+  transition: background 0.3s;
+}
+
+.val.active {
+  background: rgba(255, 255, 255, 0.4);
+}
